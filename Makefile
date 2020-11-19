@@ -1,8 +1,8 @@
-# $NetBSD: Makefile,v 1.3 2020/10/16 10:33:29 schmonz Exp $
+# $NetBSD: Makefile,v 1.5 2020/11/19 09:35:39 schmonz Exp $
 
 DISTNAME=		tinydyndns-0.4.2
 DJBDNS_DISTNAME=	djbdns-1.05
-PKGREVISION=		1
+PKGREVISION=		2
 CATEGORIES=		net
 MASTER_SITES=		${HOMEPAGE}
 DISTFILES=		${DISTNAME}${EXTRACT_SUFX} ${DJBDNS_DISTNAME}${EXTRACT_SUFX}
@@ -13,10 +13,7 @@ HOMEPAGE=		http://smarden.org/tinydyndns/
 COMMENT=		Simple and powerful dynamic DNS solution
 LICENSE=		modified-bsd
 
-DEPENDS+=		qmail-acceptutils-[0-9]*:../../mail/qmail-acceptutils
 DEPENDS+=		djbdns-[0-9]*:../../net/djbdns
-DEPENDS+=		cvm-[0-9]*:../../security/cvm
-DEPENDS+=		daemontools-[0-9]*:../../sysutils/daemontools
 
 WRKSRC=			${WRKDIR}/${DJBDNS_DISTNAME}
 
@@ -24,8 +21,6 @@ USE_TOOLS+=		gmake
 MAKE_FILE=		Makefile.${PKGBASE}
 BUILD_TARGET=		${PKGBASE}
 INSTALL_TARGET=		install-${PKGBASE}
-
-DJB_RESTRICTED=		no
 
 SUBST_CLASSES+=		djberrno
 
